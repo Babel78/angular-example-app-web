@@ -1,0 +1,170 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm col-lg">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title text-center p-2">ENVÍO DE DOCUMENTOS</h5>
+          <p class="card-text">
+            Estimados usuarios, para mayor facilidad, se ha puesto a su
+            disposición este formulario, que le permitirá el envío de documentos
+            a la Municipalidad de La Molina
+          </p>
+          <p class="card-text">
+            Esta modalidad de recepción estará activa en tanto dura la
+            emergencia nacional declarada por D.S. Nº 044-2020-PCM
+          </p>
+          <p class="card-text">
+            El horario de recepción de documentos es de 08:00 hasta las 5:00
+            p.m. de Lunes a Viernes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-sm col-lg">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title p-4">Datos del solicitante:</h5>
+          <form class="p-4">
+            <div class="row">
+              <div class="form-group col-8">
+                <label for="exampleInputEmail1">
+                  Tipo de Persona (*)
+                </label>
+                <select
+                  [(ngModel)]="dataForm.type_user"
+                  class="form-control"
+                  id="exampleFormControlSelect1"
+                  name="typeUser"
+                >
+                  <option selected>[Seleccione]</option>
+                  <option
+                    *ngFor="let typeUser of type_user_list"
+                    [value]="typeUser.type"
+                  >
+                    {{ typeUser.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-4">
+                <label for="InputDocument">
+                  Documento (*)
+                </label>
+                <select
+                  [(ngModel)]="dataForm.type_document"
+                  name="TypeDocument"
+                  class="form-control"
+                  id="exampleFormControlSelect1"
+                >
+                  <option selected>[Seleccione]</option>
+                  <option
+                    *ngFor="let type_document of type_document_list"
+                    [value]="type_document.type"
+                  >
+                    {{ type_document.name }}
+                  </option>
+                </select>
+              </div>
+              <div class="form-group col-5">
+                <label for="InputNDocument">Nº de documento (*)</label>
+                <input
+                  type="text"
+                  [(ngModel)]="dataForm.num_document"
+                  class="form-control"
+                  id="InputNDocument"
+                  name="nDocument"
+                />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-4">
+                <label for="InputNDocument">Apellido Paterno (*)</label>
+                <input
+                  [(ngModel)]="dataForm.ap_paterno"
+                  type="text"
+                  class="form-control"
+                  id="InputNDocument"
+                  name="InputAPaterno"
+                />
+              </div>
+              <div class="form-group col-4">
+                <label for="InputNDocument">Apellido Materno (*)</label>
+                <input
+                  type="text"
+                  [(ngModel)]="dataForm.ap_materno"
+                  class="form-control"
+                  id="InputNDocument"
+                  name="InputAMaterno"
+                />
+              </div>
+              <div class="form-group col-4">
+                <label for="InputNDocument">Nombres (*)</label>
+                <input
+                  [(ngModel)]="dataForm.name"
+                  type="text"
+                  class="form-control"
+                  name="InputName"
+                  id="InputNDocument"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-4">
+                <label for="InputNDocument">Teléfono (*)</label>
+                <input
+                  [(ngModel)]="dataForm.phone"
+                  type="tel"
+                  class="form-control"
+                  id="InputNDocument"
+                  name="phone"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-8">
+                <label for="InputNDocument">Correo (*)</label>
+                <input
+                  [(ngModel)]="dataForm.email"
+                  type="email"
+                  class="form-control"
+                  id="InputNDocument"
+                  name="Email"
+                  aria-describedby="emailHelp"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-8">
+                <label for="InputNDocument">Dirección (*)</label>
+                <input
+                  [(ngModel)]="dataForm.address"
+                  type="text"
+                  class="form-control"
+                  id="InputNDocument"
+                  name="Address"
+                />
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-4">
+                <button
+                  type="button"
+                  class="btn btn-primary btn-block"
+                  (click)="sendForm()"
+                  [disabled]="validateData()"
+                >
+                  Enviar
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
